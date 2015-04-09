@@ -7,5 +7,6 @@ git-git
 *.vcxproj*
 *.sln
 Debug/
+Release/
 Win32/
 git-git.dir/
