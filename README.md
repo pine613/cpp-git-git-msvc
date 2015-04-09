@@ -1,4 +1,4 @@
-# c-git-git
+# cpp-git-git-msvc
 
 ```bash
 git git git git git git git git status
@@ -13,15 +13,15 @@ git git git git git git git git status
 ## SETUP
 
 ```bash
-git clone https://github.com/karupanerura/c-git-git.git
-cd c-git-git
+git clone https://github.com/pine613/cpp-git-git-msvc.git
+cd cpp-git-git-msvc
 ```
 
 ## BUILD
 
 ```bash
 cmake .
-make
+cmake --build . --config Release
 ```
 
 # RECOMMEND
@@ -29,5 +29,5 @@ make
 Maybe, you need it:
 
 ```bash
-git config alias.git '!git "$@"'
+git config alias.git '!git-git "$@"'
 ```
