@@ -1,15 +1,39 @@
-#include <unistd.h>
+#include <string>
+#include <iostream>
+#include <process.h>
 
-int main (int argc, char **argv) {
-  if (argc == 0) execl("git", "git", NULL);
-
-  int i = 1;
-  char *args[255] = { "git" };
-  for (; i < argc; i++) {
-    args[i] = argv[i];
+std::wstring create_git_arguments(
+  int argc,
+  wchar_t *argv[],
+  int start_index = 1)
+{
+  std::wstring result = L"";
+  
+  for (int i = start_index; i < argc; ++i) {
+    result.append(L"\"");
+    result.append(argv[i]);
+    result.append(L"\" ");
   }
-  args[i] = NULL;
-  execvp("git", args);
+  
+  return result;
+}
 
-  return -1;
+void print_error(int errnum) {
+  const rsize_t ERR_MSG_MAX = 94;
+  
+  if (errnum) {
+    wchar_t buff[ERR_MSG_MAX];
+    _wcserror_s(buff, sizeof(buff), errnum);
+    std::cout << buff << std::endl;
+  }
+}
+
+int wmain(int argc, wchar_t *argv[]) {
+  auto git_args = create_git_arguments(argc, argv);
+  auto git_cl = L"git " + git_args;
+  
+  int code = _wsystem(git_cl.c_str());
+  print_error(errno);
+  
+  return code;
 }

@@ -3,3 +3,9 @@ CMakeFiles/
 Makefile
 cmake_install.cmake
 git-git
+
+*.vcxproj*
+*.sln
+Debug/
+Win32/
+git-git.dir/
