@@ -3,6 +3,9 @@ platform: x86
 init:
   - git config --global core.autocrlf false
 
+install:
+  - git submodule update --init
+
 build_script:
   - cmake .
   - cmake --build . --config Release
