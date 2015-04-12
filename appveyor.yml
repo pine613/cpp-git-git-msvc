@@ -1,0 +1,6 @@
+init:
+  - git config --global core.autocrlf false
+
+build_script:
+  - cmake .
+  - cmake --build . --config Release
