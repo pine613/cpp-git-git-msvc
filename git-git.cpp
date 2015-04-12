@@ -24,7 +24,8 @@ void print_error(int errnum) {
   if (errnum) {
     wchar_t buff[ERR_MSG_MAX + 1];
     _wcserror_s(buff, errnum);
-    std::cout << buff << std::endl;
+    std::wcerr.imbue(std::locale(""));
+    std::wcerr << buff << std::endl;
   }
 }
 
