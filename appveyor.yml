@@ -12,6 +12,6 @@ build_script:
 
 test_script:
   - git config alias.git '!git-git "$@"'
-  - ps: CopyItem .\\Release\\git-git-%PLATFORM%.exe C:\\Windows -Force
+  - ps: Copy-Item .\\Release\\git-git-%PLATFORM%.exe C:\\Windows\\git-git.exe -Force
   - ps: Import-Module .\\Pester\\Pester.psm1
   - ps: Invoke-Pester *.Tests.ps1
