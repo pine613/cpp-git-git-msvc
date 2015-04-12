@@ -1,6 +1,14 @@
+platform: x86
+
 init:
   - git config --global core.autocrlf false
 
 build_script:
   - cmake .
   - cmake --build . --config Release
+
+test_script:
+  - git config alias.git '!git-git "$@"'
+  - ps: CopyItem .\\Release\\git-git-%PLATFORM%.exe C:\\Windows -Force
+  - ps: Import-Module .\\Pester\\Pester.psm1
+  - ps: Invoke-Pester *.Tests.ps1
