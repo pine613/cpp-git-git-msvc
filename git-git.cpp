@@ -23,7 +23,7 @@ void print_error(int errnum) {
   
   if (errnum) {
     wchar_t buff[ERR_MSG_MAX + 1];
-    _wcserror_s(buff, sizeof(buff), errnum);
+    _wcserror_s(buff, errnum);
     std::cout << buff << std::endl;
   }
 }
