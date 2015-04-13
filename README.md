@@ -9,6 +9,7 @@ git git git git git git git git status
 # Dependencies
 
 * cmake
+* Visual Studio 2013
 
 # Cheat Sheet
 
