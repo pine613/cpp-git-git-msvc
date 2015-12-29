@@ -32,5 +32,5 @@ cmake --build . --config Release
 Maybe, you need it:
 
 ```bash
-git config alias.git '!git-git "$@"'
+git config alias.git '!git "$@"'
 ```
